@@ -1,7 +1,14 @@
 # Section 1: 
 ## How to integrate Mappls SDKs?
 Sign Up and Get API Key to Visit :- https://apis.mappls.com/console/
-Add API key in your project.
+Add API key in your project AppDelegate file : 
+```
+MapplsAccountManager.setMapSDKKey(".....")
+MapplsAccountManager.setRestAPIKey("....")
+MapplsAccountManager.setClientId("....")
+MapplsAccountManager.setClientSecret("....")
+MapplsAccountManager.setGrantType("client_credentials")
+```
 Add some Pods and install it :
 ```
 pod 'MapplsAPICore', '1.0.11'
