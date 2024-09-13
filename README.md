@@ -1,6 +1,7 @@
 # Section 1: 
 ## How to integrate Mappls SDKs?
-Sign Up and Get API Key to Visit :- https://apis.mappls.com/console/,
+Sign Up and Get API Key to Visit :- https://apis.mappls.com/console/
+
 Add API key in your project AppDelegate file : 
 ```
 MapplsAccountManager.setMapSDKKey(".....")
@@ -62,7 +63,7 @@ self.mapView.setCenter(rCoordinate, zoomLevel: 15, animated: false)
 
 ## How to set zoom level and center of Map with Animation.?
 ```
-mapView.setCenter(coordinate, zoomLevel: 15, animated: true)
+self.mapView.setCenter(rCoordinate, zoomLevel: 15, animated: true)
 ```
 ## How to plot a marker on Mappls Map?.
 ```
