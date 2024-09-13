@@ -4,37 +4,38 @@ Sign Up and Get API Key to Visit :- https://apis.mappls.com/console/
 Add API key in your project.
 Add some Pods and install it :
 ```
-pod 'MapplsAPICore', '1.0.9'
-pod ‘MapplsMap/Base', '5.13.10'
-pod 'MapplsAPIKit/Base', '2.0.19'
-pod 'MapplsUIWidgets/Base', '1.0.4'
+pod 'MapplsAPICore', '1.0.11'
+pod 'MapplsMap'
+pod 'MapplsUIWidgets', '1.0.6'
 ```
 
 ## How does it initialize Mappls SDKs?
 ```
 MapplsMapAuthenticator.sharedManager().initializeSDKSession { isSucess, error in
-if let error = error {
-  		// Map cannot be initilize
-   		 print("error: \(error.localizedDescription)")
- 	 } else {
-  		  // Map is authorized sucessfully.
- 	 }
+  if let error = error {
+    // Map cannot be initilize
+    print("error: \(error.localizedDescription)")
+  } else {
+    // Map is authorized sucessfully.
+  }
 }
 ```
 
 ## How to show a popup on click of Map Marker?
 Add marker 
+Use MGLAnnotation create custom Object then you can use Object as a MGLPointAnnotation()
+
 ```
-let point = MGLPointAnnotation()
-point.coordinate = CLLocationCoordinate2D(latitude: 23.344315, longitude: 85.296013)
-point.title = "Annotation"
+let rCoordinate = CLLocationCoordinate2D(latitude: 23.344315, longitude: 85.296013)
+let point = CustomAnnotation(coordinate: rCoordinate, title: "Ranchi, Jharkhand, India", subtitle: nil) 
+        
 self.mapView.addAnnotation(point)
 ```
 Write custom code before use below code. Use this function to write popup on click of map marker.
 
 ```
 func mapView(_ mapView: MGLMapView, calloutViewFor annotation: MGLAnnotation) -> MGLCalloutView? {
-        return CustomCalloutView(representedObject: annotation) // Custom Annotation view
+  return CustomCalloutView(representedObject: annotation) // Custom Annotation view
 }
 ```
 
@@ -65,9 +66,9 @@ self.mapView.addAnnotation(point)
 
 ## Add a custom marker and when we click on the marker then display an InfoWindow/pop-up.
 Use MGLAnnotation create custom Object then you can use Object as a MGLPointAnnotation()
-```	
+```
 let image = UIImage(named: "location_on_24dp")
-let point = CustomAnnotation(coordinate: rCoordinate, title: "Custom Marker", subtitle: "Custom Annotation marker")
+let point = CustomAnnotation(coordinate: rCoordinate, title: "Ranchi, Jharkhand, India", subtitle: nil)
 point.reuseIdentifier = "customAnnotation"
 point.image = image
 self.mapView.addAnnotation(point)
@@ -75,16 +76,17 @@ self.mapView.addAnnotation(point)
 
 ## Add 50 custom markers and when we click on a particular marker, the marker should be highlighted
 
-```	
-var pointAnnotations = [CustomAnnotation]()
-let coordinates: [CLLocationCoordinate2D] = self.markerCoordinates()
-for coordinate in coordinates {
+```
+var pointAnnotations = [CustomAnnotation]()      
+let places = self.markerCoordinates()
+places.forEach { (key: String, value: (Double, Double)) in
+  let coordinate = CLLocationCoordinate2D(latitude: value.0, longitude: value.1)
   let count = pointAnnotations.count + 1
-  let annotation = CustomAnnotation(coordinate: coordinate, title: "Custom Marker list \(count)", subtitle: "\(count)")
+  let annotation = CustomAnnotation(coordinate: coordinate, title: key, subtitle: nil)
   annotation.reuseIdentifier =  "CustomAnnotation\(count)"
   annotation.image = UIImage(named: "location_on_24dp")
   pointAnnotations.append(annotation)
-}
+}          
 self.mapView.addAnnotations(pointAnnotations)
 if let annotations = mapView.annotations {
   self.mapView.showAnnotations(annotations, animated: true)
