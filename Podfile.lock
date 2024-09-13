@@ -1,0 +1,49 @@
+PODS:
+  - MapplsAPICore (1.0.11)
+  - MapplsAPIKit/Base (2.0.23)
+  - MapplsLMS/Base (1.0.3)
+  - MapplsMap (5.13.11):
+    - MapplsMap/Complete (= 5.13.11)
+  - MapplsMap/Base (5.13.11)
+  - MapplsMap/Complete (5.13.11):
+    - MapplsMap/Base
+    - MapplsMap/Dependencies
+  - MapplsMap/Dependencies (5.13.11):
+    - MapplsAPICore (~> 1.0.11)
+    - MapplsAPIKit/Base (~> 2.0.22)
+    - MapplsLMS/Base (~> 1.0.3)
+  - MapplsUIWidgets (1.0.6):
+    - MapplsUIWidgets/Complete (= 1.0.6)
+  - MapplsUIWidgets/Base (1.0.6)
+  - MapplsUIWidgets/Complete (1.0.6):
+    - MapplsUIWidgets/Base
+    - MapplsUIWidgets/Dependencies
+  - MapplsUIWidgets/Dependencies (1.0.6):
+    - MapplsAPICore (~> 1.0.11)
+    - MapplsAPIKit/Base (~> 2.0.22)
+    - MapplsLMS/Base (~> 1.0.3)
+    - MapplsMap/Base (~> 5.13.11)
+
+DEPENDENCIES:
+  - MapplsAPICore (= 1.0.11)
+  - MapplsMap
+  - MapplsUIWidgets (= 1.0.6)
+
+SPEC REPOS:
+  trunk:
+    - MapplsAPICore
+    - MapplsAPIKit
+    - MapplsLMS
+    - MapplsMap
+    - MapplsUIWidgets
+
+SPEC CHECKSUMS:
+  MapplsAPICore: 16d5fc129fe32446338b15e02dece59a487633a6
+  MapplsAPIKit: 4d64ccb817c3d76accdd65eaa84bbf57c0cff8c4
+  MapplsLMS: 9ecee43f27407f182f382c8b7c54f64b57f152e9
+  MapplsMap: aa4ab887d962426217956f025b5f596ebd42ad0c
+  MapplsUIWidgets: 45af6bc3dedf4ccf110bb9969ce22a0800a3cf38
+
+PODFILE CHECKSUM: 52ba93cc7ca3dbbdfe12cc8a113296e77dca1732
+
+COCOAPODS: 1.15.2
