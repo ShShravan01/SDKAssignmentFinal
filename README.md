@@ -30,7 +30,8 @@ MapplsMapAuthenticator.sharedManager().initializeSDKSession { isSucess, error in
 
 ## How to show a popup on click of Map Marker?
 Add marker 
-Use MGLAnnotation create custom Object then you can use Object as a MGLPointAnnotation()
+
+Use MGLAnnotation create custom Object and use Object as a MGLPointAnnotation()
 
 ```
 let rCoordinate = CLLocationCoordinate2D(latitude: 23.344315, longitude: 85.296013)
@@ -72,7 +73,7 @@ self.mapView.addAnnotation(point)
 ```
 
 ## Add a custom marker and when we click on the marker then display an InfoWindow/pop-up.
-Use MGLAnnotation create custom Object then you can use Object as a MGLPointAnnotation()
+Use MGLAnnotation create custom Object and use Object as a MGLPointAnnotation()
 ```
 let image = UIImage(named: "location_on_24dp")
 let point = CustomAnnotation(coordinate: rCoordinate, title: "Ranchi, Jharkhand, India", subtitle: nil)
@@ -85,7 +86,7 @@ self.mapView.addAnnotation(point)
 
 ```
 var pointAnnotations = [CustomAnnotation]()      
-let places = self.markerCoordinates()
+let places = self.markerCoordinates() // it gives place name and coordinate list
 places.forEach { (key: String, value: (Double, Double)) in
   let coordinate = CLLocationCoordinate2D(latitude: value.0, longitude: value.1)
   let count = pointAnnotations.count + 1
@@ -108,7 +109,7 @@ create custom Object use MGLAnnotationView
 
 ## How to plot a polyline on Mappls Map?.
 ```
-var coordinates = self.dummyCoordinate()
+var coordinates = self.dummyCoordinate() // it gives coordinate list
 let polyline = MGLPolyline(coordinates: &coordinates, count: UInt(coordinates.count))
 self.mapView.addAnnotation(polyline)
 let shapeCam = mapView.cameraThatFitsShape(polyline, direction: CLLocationDirection(0), edgePadding: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20))
@@ -130,7 +131,7 @@ func mapView(_ mapView: MGLMapView, strokeColorForShapeAnnotation annotation: MG
 
 ## How to plot a polygon on Mappls Map?
 ```
-var coordinates = self.dummyCoordinate()
+var coordinates = self.dummyCoordinate() // it gives coordinate list
 let polygon = MGLPolygon(coordinates: &coordinates, count: UInt(coordinates.count))
 self.mapView.addAnnotation(polygon)
 let shapeCam = self.mapView.cameraThatFitsShape(polygon, direction: CLLocationDirection(0), edgePadding: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20))
