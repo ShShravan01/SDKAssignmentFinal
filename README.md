@@ -31,7 +31,7 @@ MapplsMapAuthenticator.sharedManager().initializeSDKSession { isSucess, error in
 ## How to show a popup on click of Map Marker?
 Add marker 
 
-Use MGLAnnotation create custom Object and use Object as a MGLPointAnnotation()
+Use MGLAnnotation create custom Object and use Object as a MGLPointAnnotation().
 
 ```
 let rCoordinate = CLLocationCoordinate2D(latitude: 23.344315, longitude: 85.296013)
@@ -73,7 +73,7 @@ self.mapView.addAnnotation(point)
 ```
 
 ## Add a custom marker and when we click on the marker then display an InfoWindow/pop-up.
-Use MGLAnnotation create custom Object and use Object as a MGLPointAnnotation()
+Use MGLAnnotation create custom Object and use Object as a MGLPointAnnotation().
 ```
 let image = UIImage(named: "location_on_24dp")
 let point = CustomAnnotation(coordinate: rCoordinate, title: "Ranchi, Jharkhand, India", subtitle: nil)
@@ -105,7 +105,7 @@ Marker Add success then you can use this function to highlight code :
 func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {}
 ```
 
-create custom Object use MGLAnnotationView
+create custom Object use MGLAnnotationView.
 
 ## How to plot a polyline on Mappls Map?.
 ```
@@ -142,7 +142,7 @@ self.mapView.setCamera(shapeCam, animated: false)
 Write plot a polygon code before use below code. Use this function to change polygon color.
 ```
 func mapView(_ mapView: MGLMapView, fillColorForPolygonAnnotation annotation: MGLPolygon) -> UIColor {
-            return UIColor.red
+  return UIColor.red
 }
 ```
 
@@ -150,14 +150,14 @@ func mapView(_ mapView: MGLMapView, fillColorForPolygonAnnotation annotation: MG
 Write plot a polygon code before use below code. Use this function to change polygon opacity.
 ```
 func mapView(_ mapView: MGLMapView, alphaForShapeAnnotation annotation: MGLShape) -> CGFloat {
- 	return 0.5
+  return 0.5
 }
 ```
 ## How to show a custom popup on click of Map Marker?
 Write custom code before use below code. Use this function to custom popup on click of map marker.
 ```
 func mapView(_ mapView: MGLMapView, calloutViewFor annotation: MGLAnnotation) -> MGLCalloutView? {
-        return CustomCalloutView(representedObject: annotation)
+  return CustomCalloutView(representedObject: annotation)
 }
 ```
 
@@ -194,8 +194,9 @@ func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
 }
 ```	
 When you search for a place, it should display a marker on that location.
-		Use this delegate ``` MapplsAutocompleteViewControllerDelegate ```
-	Use this function :
+Use this delegate ``` MapplsAutocompleteViewControllerDelegate ```
+
+Use this function :
 ```
 func didAutocomplete(viewController: MapplsUIWidgets.MapplsAutocompleteViewController, withPlace place: MapplsAPIKit.MapplsAtlasSuggestion, resultType type: MapplsAutosuggestResultType) {
   self.dismiss(animated: true)
