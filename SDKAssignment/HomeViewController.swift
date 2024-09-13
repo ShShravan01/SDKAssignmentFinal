@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapplsMap
 
 class HomeViewController: UIViewController {
 
@@ -23,7 +24,14 @@ class HomeViewController: UIViewController {
         tblView.delegate = self
         tblView.dataSource = self
         tblView.register(UITableViewCell.self, forCellReuseIdentifier: "DefaultCell")
-        self.setTableData()
+        
+        MapplsMapAuthenticator.sharedManager().initializeSDKSession { isSucess, error in
+            if let error = error {
+                print("error: \(error.localizedDescription)")
+            } else {
+                self.setTableData()
+            }
+        }
         
     }
     
